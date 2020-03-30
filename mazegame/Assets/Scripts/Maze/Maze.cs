@@ -23,6 +23,20 @@ public class Maze
         this.width = width;
         this.height = height;
 
+        startX = 1;
+        startY = 1;
+
+        this.rg = rg;
+    }
+
+    public Maze(int width, int height, int startX, int startY, System.Random rg)
+    {
+        this.width = width;
+        this.height = height;
+
+        this.startX = startX;
+        this.startY = startY;
+
         this.rg = rg;
     }
 
@@ -102,4 +116,36 @@ public class Maze
             }
         }
     }
+
+    public Vector3 GetGoalPosition()
+    {
+        int radius = 2;
+
+        int endX = width - startX;
+        int endY = height - startY;
+
+        for (int x = endX - radius; x <= endX + radius; x++)
+        {
+            for (int y = endY - radius; y <= endY + radius; y++)
+            {
+                if (GetCell(x, y))
+                {
+                    return new Vector3(x, y);
+                }
+            }
+        }
+
+        return Vector3.one * 1000;
+    }
+
+    public bool GetCell(int x, int y)
+    {
+        if (x >= width || x < 0 || y >= height || y <= 0)
+        {
+            return false;
+        }
+
+        return grid[x, y];
+    }
+
 }
