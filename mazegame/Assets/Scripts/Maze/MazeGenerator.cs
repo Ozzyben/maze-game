@@ -30,10 +30,10 @@ public class MazeGenerator : MonoBehaviour
     {
         mazeRG = new System.Random(mazeSeed.GetHashCode());
 
-        if (mazeWidth % 2 == 0)
+        if ((mazeWidth % 2) == 0)
             mazeWidth++;
 
-        if (mazeHeight % 2 == 0)
+        if ((mazeHeight % 2) == 0)
         {
             mazeHeight++;
         }
@@ -53,12 +53,13 @@ public class MazeGenerator : MonoBehaviour
 
     void DrawMaze()
     {
-        for (int x = 0; x < mazeWidth; x++)
+        for (var x = 0; x < mazeWidth; x++)
         {
-            for (int y = 0; y < mazeHeight; y++)
+            for (var y = 0; y < mazeHeight; y++)
             {
                 Vector3 position = new Vector3(x, y);
 
+                // Check if the cell is a path, if it isn't, add it.
                 if (maze.Grid[x, y] == true)
                 {
                     CreateMazeSprite(position, floorSprite, transform, 0, mazeRG.Next(0, 3) * 90);
@@ -111,22 +112,22 @@ public class MazeGenerator : MonoBehaviour
             CreateMazeSprite(position, wallSprite, transform, 1, 270);
         }
 
-        if (!left && !top && x > 0 && y < mazeHeight - 1)
+        if ((!left) && (!top) && (x > 0) && (y < (mazeHeight - 1)))
         {
             CreateMazeSprite(position, wallCornerSprite, transform, 2, 0);
         }
 
-        if (!left && !bottom && x > 0 && y > 0)
+        if ((!left) && (!bottom) && (x > 0) && (y > 0))
         {
             CreateMazeSprite(position, wallCornerSprite, transform, 2, 90);
         }
 
-        if (!right && !bottom && x < mazeWidth - 1 && y > 0)
+        if ((!right) && (!bottom) && (x < (mazeWidth - 1)) && (y > 0))
         {
             CreateMazeSprite(position, wallCornerSprite, transform, 2, 180);
         }
 
-        if (!right && !top && x < mazeWidth - 1 && y < mazeHeight - 1)
+        if ((!right) && (!top) && (x < (mazeWidth - 1)) && (y < (mazeHeight - 1)))
         {
             CreateMazeSprite(position, wallCornerSprite, transform, 2, 270);
         }
@@ -146,9 +147,9 @@ public class MazeGenerator : MonoBehaviour
 
     public List<Vector3> GetRandomFloorPositions(int count)
     {
-        List<Vector3> positions = new List<Vector3>();
+        List<Vector3> floorPositions = new List<Vector3>();
 
-        for (int i = 0; i < count; i++)
+        for (var i = 0; i < count; i++)
         {
             Vector3 position = Vector3.one;
 
@@ -164,12 +165,12 @@ public class MazeGenerator : MonoBehaviour
                 }
 
                 position = new Vector3(posX, posY);
-            } while (positions.Contains(position));
+            } while (floorPositions.Contains(position));
 
-            positions.Add(position);
+            floorPositions.Add(position);
         }
 
-        return positions;
+        return floorPositions;
     }
 
 

@@ -23,7 +23,7 @@ public class MazeRunner : MonoBehaviour
 
     void Update()
     {
-        bool targetReached = transform.position.x == targetX && transform.position.y == targetY;
+        bool targetReached = (((transform.position.x) == (targetX)) && ((transform.position.y) == (targetY)));
 
         currentX = Mathf.FloorToInt(transform.position.x);
         currentY = Mathf.FloorToInt(transform.position.y);
@@ -31,11 +31,11 @@ public class MazeRunner : MonoBehaviour
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
 
-        float angle = 0;
+        float newAngle = 0;
 
         if (direction.x > 0)
         {
-            angle = 270;
+            newAngle = 270;
 
             if (MazeGenerator.instance.GetMazeGridCell(currentX + 1, currentY) && targetReached)
             {
@@ -45,7 +45,7 @@ public class MazeRunner : MonoBehaviour
         }
         else if (direction.x < 0)
         {
-            angle = 90;
+            newAngle = 90;
 
             if (MazeGenerator.instance.GetMazeGridCell(currentX - 1, currentY) && targetReached)
             {
@@ -55,7 +55,7 @@ public class MazeRunner : MonoBehaviour
         }
         else if (direction.y > 0)
         {
-            angle = 0;
+            newAngle = 0;
 
             if (MazeGenerator.instance.GetMazeGridCell(currentX, currentY + 1) && targetReached)
             {
@@ -65,7 +65,7 @@ public class MazeRunner : MonoBehaviour
         }
         else if (direction.y < 0)
         {
-            angle = 180;
+            newAngle = 180;
 
             if (MazeGenerator.instance.GetMazeGridCell(currentX, currentY - 1) && targetReached)
             {
@@ -75,13 +75,13 @@ public class MazeRunner : MonoBehaviour
         }
         else
         {
-            angle = lastAngle;
+            newAngle = lastAngle;
         }
 
-        currentAngle = Mathf.LerpAngle(currentAngle, angle, rotationSpeed * Time.deltaTime);
+        currentAngle = Mathf.LerpAngle(currentAngle, newAngle, rotationSpeed * Time.deltaTime);
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetX, targetY), walkSpeed * Time.deltaTime);
         rotationTransform.eulerAngles = new Vector3(0, 0, currentAngle);
-        lastAngle = angle;
+        lastAngle = newAngle;
     }
 
 

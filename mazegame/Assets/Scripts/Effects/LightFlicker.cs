@@ -36,7 +36,7 @@ public class LightFlicker : MonoBehaviour
 
             int flickerCount = rg.Next(4, 9);
 
-            for (int i = 0; i < flickerCount; i++)
+            for (var i = 0; i < flickerCount; i++)
             {
                 float flickingIntensity = lightIntensity - ((float)rg.NextDouble() * flickerIntensity);
                 flashlight.intensity = flickingIntensity;
