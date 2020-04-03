@@ -9,6 +9,7 @@ public class MazeKey : MonoBehaviour
     {
         transform.parent.SendMessage("OnKeyFound", SendMessageOptions.DontRequireReceiver);
         GameObject.Destroy(gameObject);
+        GameObject.Find("console_text").SendMessage("OnKeyFound", SendMessageOptions.DontRequireReceiver);
     }
 
 }

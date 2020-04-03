@@ -45,8 +45,10 @@ public class MazeDirectives : MonoBehaviour
         Debug.Log("Goal Reached");
         if (foundKeys == keysToFind)
         {
+            GameObject.Find("console_text").SendMessage("keysFound", SendMessageOptions.DontRequireReceiver);
             Debug.Log("Escape the maze");
         }
+        
     }
 
     public void OnKeyFound()
