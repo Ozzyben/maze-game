@@ -21,6 +21,7 @@ public class MazeGoal : MonoBehaviour
     void OnTriggerEnter2D()
     {
         transform.parent.SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
+        GameObject.Find("console_text").SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
     }
 
 }
