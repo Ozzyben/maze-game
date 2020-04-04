@@ -50,6 +50,24 @@ public class Maze
         grid[startX, startY] = true;
 
         MazeDigger(startX, startY);
+        AddMoreFloors();
+    }
+
+    void AddMoreFloors()
+    {
+        var size = width * height;
+        var numExtraTiles = size / 4;
+        for (var i = 0; i < numExtraTiles; i++)
+        {
+            int index = rg.Next(0, size);
+            var x = (int)index / width;
+            var y = (int)index % width;
+            bool inBounds = (x > 0) && (x < width) && (y > 0) && (y < height); 
+            if(inBounds)
+            {
+                grid[x, y] = true;
+            }
+        }
     }
 
     void MazeDigger(int x, int y)
@@ -81,7 +99,7 @@ public class Maze
                     }
                     break;
 
-                // Left
+                // Right
                 case 3:
                     if (((x + 2) < width - 1) && (grid[x + 2, y] == false))
                     {
