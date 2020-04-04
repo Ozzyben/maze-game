@@ -8,6 +8,10 @@ public class MazeRunner : MonoBehaviour
     public float walkSpeed;
     public float rotationSpeed;
 
+    float speedMultiplier = 1;
+
+    public SpeedManager speedManager;
+
     public Transform rotationTransform;
 
     Vector2 direction = Vector2.zero;
@@ -78,8 +82,10 @@ public class MazeRunner : MonoBehaviour
             newAngle = lastAngle;
         }
 
-        currentAngle = Mathf.LerpAngle(currentAngle, newAngle, rotationSpeed * Time.deltaTime);
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetX, targetY), walkSpeed * Time.deltaTime);
+        speedMultiplier = speedManager.getSpeedMultiplier();
+
+        currentAngle = Mathf.LerpAngle(currentAngle, newAngle, (rotationSpeed*speedMultiplier) * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetX, targetY), (walkSpeed*speedMultiplier) * Time.deltaTime);
         rotationTransform.eulerAngles = new Vector3(0, 0, currentAngle);
         lastAngle = newAngle;
     }

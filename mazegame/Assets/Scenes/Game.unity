@@ -582,6 +582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 4
   rotationSpeed: 8
+  speedManager: {fileID: 1643842996}
   rotationTransform: {fileID: 1582152336}
 --- !u!4 &1267925321
 Transform:
@@ -894,6 +895,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1643842995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1643842997}
+  - component: {fileID: 1643842996}
+  m_Layer: 0
+  m_Name: SpeedManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1643842996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643842995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19756c099cc8c994a9e7e0ab906660b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMultiplier: 2
+--- !u!4 &1643842997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643842995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 450.45978, y: 267.0927, z: -36.604885}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1656189616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,8 +1192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d110dc801a8174447a7bb24126f7f80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mazeWidth: 13
-  mazeHeight: 13
+  mazeWidth: 9
+  mazeHeight: 9
   mazeSeed: 1
   floorSprite: {fileID: -8308593206366508291, guid: ceeccc48078801f43a8bbc15d8710dcc,
     type: 3}
@@ -1187,9 +1232,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5677a51fa90b76c47a0b80a9cfc2ae72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keysToFind: 3
+  keysToFind: 1
   keysValueText: {fileID: 715220697}
   mazeGoalPrefab: {fileID: 5828580251753564651, guid: c47136d1a90503d4c9a164f1472132d5,
     type: 3}
   mazeKeyPrefab: {fileID: 6277685457927978058, guid: e8191fbf49edd6a46b8f0af4219ff7d6,
+    type: 3}
+  slowSpots: 2
+  fastSpots: 2
+  slowMudPrefab: {fileID: -928256324875696731, guid: 3a0f005b8e4b2bd4e8f1f12b6e180239,
+    type: 3}
+  fastIcePrefab: {fileID: 8089328992204050768, guid: 4311ce45e455b1747adc4de7e7217df7,
     type: 3}
