@@ -30,7 +30,6 @@ public class MazeRunner : MonoBehaviour
 
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
-
         float newAngle = 0;
 
         if (direction.x > 0)
@@ -40,43 +39,43 @@ public class MazeRunner : MonoBehaviour
             if (MazeGenerator.instance.GetMazeGridCell(currentX + 1, currentY) && targetReached)
             {
                 targetX = currentX + 1;
-                targetY = currentY;
+               // targetY = currentY;
             }
         }
-        else if (direction.x < 0)
+        if (direction.x < 0)
         {
             newAngle = 90;
 
             if (MazeGenerator.instance.GetMazeGridCell(currentX - 1, currentY) && targetReached)
             {
                 targetX = currentX - 1;
-                targetY = currentY;
+               // targetY = currentY;
             }
         }
-        else if (direction.y > 0)
+        if (direction.y > 0)
         {
             newAngle = 0;
 
             if (MazeGenerator.instance.GetMazeGridCell(currentX, currentY + 1) && targetReached)
             {
-                targetX = currentX;
+              //  targetX = currentX;
                 targetY = currentY + 1;
             }
         }
-        else if (direction.y < 0)
+        if (direction.y < 0)
         {
             newAngle = 180;
 
             if (MazeGenerator.instance.GetMazeGridCell(currentX, currentY - 1) && targetReached)
             {
-                targetX = currentX;
+               // targetX = currentX;
                 targetY = currentY - 1;
             }
         }
-        else
-        {
-            newAngle = lastAngle;
-        }
+        //else
+        //{
+        //    newAngle = lastAngle;
+        //}
 
         currentAngle = Mathf.LerpAngle(currentAngle, newAngle, rotationSpeed * Time.deltaTime);
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetX, targetY), walkSpeed * Time.deltaTime);
