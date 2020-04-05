@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public class TextEditor : MonoBehaviour
 {
-
-    string key1_found = "You found a key! I wonder where it fits...";
-    string key2_found = "You found a second key!";
-    string key3_found = "You found a third key! ... *click*... Sounds like a door has opened";
-
     string goal_reached_without_keys = "This door is really strong! Looks like you need more keys to open it..";
     string goal_reached_with_keys = "This door is open. You go through..";
 
@@ -21,11 +16,13 @@ public class TextEditor : MonoBehaviour
 
     void Start()
     {
-        
-        keys.Push(key3_found);
-        keys.Push(key2_found);
-        keys.Push(key1_found);
+        var first_key_found = "You found a key! I wonder where it fits...";
+        var second_key_found = "You found a second key!";
+        var third_key_found = "You found a third key! ... *click*... Sounds like a door has opened";
 
+        keys.Push(third_key_found);
+        keys.Push(second_key_found);
+        keys.Push(first_key_found);
     }
 
     public void OnKeyFound()
