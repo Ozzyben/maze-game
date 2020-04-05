@@ -56,13 +56,13 @@ public class Maze
     void AddMoreFloors()
     {
         var size = width * height;
-        var numExtraTiles = size / 4;
+        var numExtraTiles = size / 8;
         for (var i = 0; i < numExtraTiles; i++)
         {
             int index = rg.Next(0, size);
             var x = (int)index / width;
             var y = (int)index % width;
-            bool inBounds = (x > 0) && (x < width) && (y > 0) && (y < height); 
+            bool inBounds = (x > 0) && (x < width-1) && (y > 0) && (y < height-1); 
             if(inBounds)
             {
                 grid[x, y] = true;
