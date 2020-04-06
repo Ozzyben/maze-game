@@ -30,7 +30,6 @@ public class EnemyMovement : MonoBehaviour
             var newTarget = PickNewTarget();
             targetX = (int)newTarget.x;
             targetY = (int)newTarget.y;
-            Debug.Log($"target {targetX}, {targetY}");
         }
 
         MoveEnemy();

@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 708, y: 492}
-  m_MaxSize: {x: 18003, y: 14042}
+  m_MinSize: {x: 709, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 9149
+  controlID: 10858
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 433, y: 492}
   m_MaxSize: {x: 14003, y: 14042}
   vertical: 1
-  controlID: 9122
+  controlID: 10811
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 9123
+  controlID: 10764
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,7 +221,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: a0dbffffa6dbffffc0dbffffd2dbffffe6f3ffffe4360000543b00007c3b00008e3b0000
+      m_ExpandedIDs: a0dbffffa6dbffffc0dbffffd2dbffffe6f3ffffe4360000543b0000643b00007c3b00008e3b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_MinSize: {x: 433, y: 271}
   m_MaxSize: {x: 14003, y: 10021}
   vertical: 0
-  controlID: 9101
+  controlID: 10812
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -503,19 +503,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Enemy
+    - Assets/Scripts/Maze
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Scripts/Enemy
+  - Assets/Scripts/Maze
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\jackr\Documents\GitHub\maze-game\mazegame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 54370000
-    m_LastClickedID: 14164
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 56370000
+    m_LastClickedID: 14166
     m_ExpandedIDs: 000000003e3700004037000042370000443700004637000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -569,8 +569,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ae310000
-    m_LastClickedInstanceID: 12718
+    m_SelectedInstanceIDs: 9c3b0000
+    m_LastClickedInstanceID: 15260
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000d03d00000636000004360000c233000002360000000000003a340000
     m_RenameOverlay:
@@ -619,8 +619,8 @@ MonoBehaviour:
     y: 0
     width: 599
     height: 406
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -688,5 +688,5 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: 12718
+  m_LastInspectedObjectInstanceID: 15260
   m_LastVerticalScrollValue: 0

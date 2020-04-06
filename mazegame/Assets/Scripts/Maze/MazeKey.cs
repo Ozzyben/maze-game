@@ -5,11 +5,14 @@ using UnityEngine;
 public class MazeKey : MonoBehaviour
 {
 
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        transform.parent.SendMessage("OnKeyFound", SendMessageOptions.DontRequireReceiver);
-        GameObject.Destroy(gameObject);
-        GameObject.Find("console_text").SendMessage("OnKeyFound", SendMessageOptions.DontRequireReceiver);
+        if (collider.gameObject.name == "MazeRunner")
+        {
+            transform.parent.SendMessage("OnKeyFound", SendMessageOptions.DontRequireReceiver);
+            GameObject.Destroy(gameObject);
+            GameObject.Find("console_text").SendMessage("OnKeyFound", SendMessageOptions.DontRequireReceiver);
+        }
     }
 
 }
