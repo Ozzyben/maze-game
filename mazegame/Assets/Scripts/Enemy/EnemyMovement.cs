@@ -72,42 +72,18 @@ public class EnemyMovement : MonoBehaviour
         if (direction.x > 0)
         {
             newAngle = 270;
-
-            if (MazeGenerator.instance.GetMazeGridCell(currentX + 1, currentY) && targetReached)
-            {
-                targetX = currentX + 1;
-                targetY = currentY;
-            }
         }
         else if (direction.x < 0)
         {
             newAngle = 90;
-
-            if (MazeGenerator.instance.GetMazeGridCell(currentX - 1, currentY) && targetReached)
-            {
-                targetX = currentX - 1;
-                targetY = currentY;
-            }
         }
         else if (direction.y > 0)
         {
             newAngle = 0;
-
-            if (MazeGenerator.instance.GetMazeGridCell(currentX, currentY + 1) && targetReached)
-            {
-                targetX = currentX;
-                targetY = currentY + 1;
-            }
         }
         else if (direction.y < 0)
         {
             newAngle = 180;
-
-            if (MazeGenerator.instance.GetMazeGridCell(currentX, currentY - 1) && targetReached)
-            {
-                targetX = currentX;
-                targetY = currentY - 1;
-            }
         }
         else
         {
