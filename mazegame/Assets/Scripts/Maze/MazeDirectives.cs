@@ -39,7 +39,7 @@ public class MazeDirectives : MonoBehaviour
         }
     }
 
-    void DropKey()
+    void OnMoveKey()
     {
         var mazeKeyPosition = MazeGenerator.instance.GetRandomFloorPositions(1)[0];
         MazeKey mazeKey = Instantiate(mazeKeyPrefab, mazeKeyPosition, Quaternion.identity) as MazeKey;
