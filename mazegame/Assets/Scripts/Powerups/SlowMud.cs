@@ -12,7 +12,6 @@ public class SlowMud : MonoBehaviour
         if (speedManagerObj != null)
         {
             speedManager = speedManagerObj.GetComponent<SpeedManager>();
-            Debug.Log("SpeedManager linked");
         }
     }
 
@@ -24,9 +23,7 @@ public class SlowMud : MonoBehaviour
     IEnumerator WaitBlock()
     {
         speedManager.setSpeedMultiplier(0.5f);
-        Debug.Log("Slow down active");
-        yield return new WaitForSeconds(5);
-        Debug.Log("Slow down ended");
+        yield return new WaitForSeconds(0.1);
         speedManager.setSpeedMultiplier(1.0f);
     }
 }

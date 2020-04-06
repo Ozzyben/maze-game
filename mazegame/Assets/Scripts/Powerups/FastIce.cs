@@ -12,7 +12,6 @@ public class FastIce : MonoBehaviour
         if (speedManagerObj != null)
         {
             speedManager = speedManagerObj.GetComponent<SpeedManager>();
-            Debug.Log("SpeedManager linked");
         }
     }
 
@@ -24,9 +23,7 @@ public class FastIce : MonoBehaviour
     IEnumerator WaitBlock()
     {
         speedManager.setSpeedMultiplier(1.5f);
-        Debug.Log("Speed up active");
-        yield return new WaitForSeconds(5);
-        Debug.Log("Speed up ended");
+        yield return new WaitForSeconds(0.1);
         speedManager.setSpeedMultiplier(1.0f);
     }
 }
