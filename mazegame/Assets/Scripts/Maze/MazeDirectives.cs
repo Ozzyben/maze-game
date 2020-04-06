@@ -45,6 +45,7 @@ public class MazeDirectives : MonoBehaviour
         {
             SlowMud slowMud = Instantiate(slowMudPrefab, slowMudPositions[i], Quaternion.identity) as SlowMud;
             slowMud.transform.SetParent(transform);
+            //slowMud.GetComponent<SpeedManager>() = gameObject;
         }
 
         fastIcePositions = MazeGenerator.instance.GetRandomFloorPositions(fastSpots);
@@ -53,6 +54,7 @@ public class MazeDirectives : MonoBehaviour
         {
             FastIce fastIce = Instantiate(fastIcePrefab, fastIcePositions[i], Quaternion.identity) as FastIce;
             fastIce.transform.SetParent(transform);
+            //fastIce.GetComponent<SpeedManager>() = gameObject;
         }
 
         mazeKeyPositions = MazeGenerator.instance.GetRandomFloorPositions(keysToFind);

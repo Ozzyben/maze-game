@@ -907,7 +907,7 @@ GameObject:
   - component: {fileID: 1643842996}
   m_Layer: 0
   m_Name: SpeedManager
-  m_TagString: Untagged
+  m_TagString: SpeedManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19756c099cc8c994a9e7e0ab906660b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 2
+  speedMultiplier: 1
 --- !u!4 &1643842997
 Transform:
   m_ObjectHideFlags: 0
