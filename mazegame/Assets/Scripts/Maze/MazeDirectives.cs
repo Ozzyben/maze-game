@@ -14,7 +14,6 @@ public class MazeDirectives : MonoBehaviour
     MazeGoal mazeGoal;
 
     int foundKeys;
-    List<Vector3> mazeKeyPositions;
 
     void Start()
     {
@@ -31,13 +30,20 @@ public class MazeDirectives : MonoBehaviour
         mazeGoal = Instantiate(mazeGoalPrefab, MazeGenerator.instance.mazeGoalPosition, Quaternion.identity) as MazeGoal;
         mazeGoal.transform.SetParent(transform);
 
-        mazeKeyPositions = MazeGenerator.instance.GetRandomFloorPositions(keysToFind);
+        var mazeKeyPositions = MazeGenerator.instance.GetRandomFloorPositions(keysToFind);
 
         for (int i = 0; i < mazeKeyPositions.Count; i++)
         {
             MazeKey mazeKey = Instantiate(mazeKeyPrefab, mazeKeyPositions[i], Quaternion.identity) as MazeKey;
             mazeKey.transform.SetParent(transform);
         }
+    }
+
+    void DropKey()
+    {
+        var mazeKeyPosition = MazeGenerator.instance.GetRandomFloorPositions(1)[0];
+        MazeKey mazeKey = Instantiate(mazeKeyPrefab, mazeKeyPosition, Quaternion.identity) as MazeKey;
+        mazeKey.transform.SetParent(transform);
     }
 
     public void OnGoalReached()
