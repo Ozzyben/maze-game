@@ -63,7 +63,7 @@ public class EnemyMovement : MonoBehaviour
 
     void MoveEnemy()
     {
-        bool targetReached = (currentX == targetX) && (currentY == targetY);
+       
         Vector2 direction = Vector2.zero;
         direction.x = targetX - currentX;
         direction.y = targetY - currentY;
