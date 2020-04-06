@@ -30,6 +30,11 @@ public class TextEditor : MonoBehaviour
         consoletext.text = (string)keys.Pop();
     }
 
+    public void OnMoveKey()
+    {
+        consoletext.text = "\"Yeet?\" Oh. The keys been moved...";
+    }
+
     public void OnGoalReached()
     {
         if (keysFound)

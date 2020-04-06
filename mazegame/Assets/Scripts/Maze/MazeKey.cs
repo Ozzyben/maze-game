@@ -10,9 +10,14 @@ public class MazeKey : MonoBehaviour
         if (collider.gameObject.name == "MazeRunner")
         {
             transform.parent.SendMessage("OnKeyFound", SendMessageOptions.DontRequireReceiver);
-            GameObject.Destroy(gameObject);
             GameObject.Find("console_text").SendMessage("OnKeyFound", SendMessageOptions.DontRequireReceiver);
         }
+        else
+        {
+            transform.parent.SendMessage("OnMoveKey", SendMessageOptions.DontRequireReceiver);
+            GameObject.Find("console_text").SendMessage("OnMoveKey", SendMessageOptions.DontRequireReceiver);
+        }
+        GameObject.Destroy(gameObject);
     }
 
 }
