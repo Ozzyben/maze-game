@@ -13,16 +13,20 @@ public class MazeDirectives : MonoBehaviour
 
     MazeGoal mazeGoal;
 
-    int foundKeys;
+    public int foundKeys;
 
     void Start()
     {
         SetKeyValueText();
     }
 
+    public static MazeDirectives instance;
+
+
     void Awake()
     {
         MazeGenerator.OnMazeReady += StartDirectives;
+        instance = this;
     }
 
     void StartDirectives()
@@ -74,5 +78,12 @@ public class MazeDirectives : MonoBehaviour
         keysValueText.text = foundKeys.ToString() + " of " + keysToFind.ToString();
     }
 
+    void reset()
+    {
+        foundKeys = 0;
+        keysToFind = 3;
+        GetComponentInChildren<MazeGoal>().closeGoal();
+        Debug.Log("reset keys");
 
+    }
 }
