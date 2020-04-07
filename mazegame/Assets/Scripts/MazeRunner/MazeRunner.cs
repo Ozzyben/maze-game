@@ -91,6 +91,13 @@ public class MazeRunner : MonoBehaviour
         lastAngle = newAngle;
     }
 
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.name == "Enemy")
+        {
+            GameObject.Find("console_text").SendMessage("OnGameOver");
+        }
+    }
 
 
 }

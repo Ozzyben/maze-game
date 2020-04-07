@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\Maze\MazeKey.cs" />
      <Compile Include="Assets\Scripts\Maze\MazeSprite.cs" />
      <Compile Include="Assets\Scripts\Maze\TextEditor.cs" />
+     <Compile Include="Assets\Scripts\Maze\TimeController.cs" />
      <Compile Include="Assets\Scripts\MazeRunner\MazeRunner.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuText.cs" />
      <Compile Include="Assets\Scripts\Tools\Tools.cs" />

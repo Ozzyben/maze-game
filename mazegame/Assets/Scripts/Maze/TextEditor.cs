@@ -35,6 +35,16 @@ public class TextEditor : MonoBehaviour
         consoletext.text = "\"Yeet?\" Oh. The keys been moved...";
     }
 
+    public void OnBatteryLow()
+    {
+        consoletext.text = "The battery in the flashlight is running low";
+    }
+
+    public void OnGameOver()
+    {
+        consoletext.text = "Game Over";
+    }
+
     public void OnGoalReached()
     {
         if (keysFound)

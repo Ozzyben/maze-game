@@ -7,7 +7,6 @@ public class MazeGenerator : MonoBehaviour
 
     public int mazeWidth;
     public int mazeHeight;
-    public string mazeSeed;
 
     public Sprite floorSprite;
     public Sprite roofSprite;
@@ -28,7 +27,8 @@ public class MazeGenerator : MonoBehaviour
 
     void Start()
     {
-        mazeRG = new System.Random(mazeSeed.GetHashCode());
+        mazeRG = new System.Random();
+      //  mazeRG = new System.Random(mazeSeed.GetHashCode());
 
         if ((mazeWidth % 2) == 0)
             mazeWidth++;

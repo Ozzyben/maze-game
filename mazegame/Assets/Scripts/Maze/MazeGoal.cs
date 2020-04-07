@@ -18,10 +18,14 @@ public class MazeGoal : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().sprite = openedGoalSprite;
     }
 
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        transform.parent.SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
-        GameObject.Find("console_text").SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
+        if (collider.gameObject.name == "MazeRunner")
+        {
+            transform.parent.SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
+            GameObject.Find("console_text").SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
+            GameObject.Destroy(gameObject);
+        }
     }
 
 }

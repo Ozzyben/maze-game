@@ -7,9 +7,8 @@ public class LightFlicker : MonoBehaviour
     public float lightIntensity;
     public float flickerIntensity;
 
-    public float lightTime;
-    public float flickerTime;
-
+    float flickerTime = 0.5f;
+    bool isFlickering = false;
     System.Random rg;
 
     Light flashlight;
@@ -20,21 +19,18 @@ public class LightFlicker : MonoBehaviour
         flashlight = GetComponent<Light>();
     }
 
-    void Start()
+    void Update()
     {
         StartCoroutine(Flicker());
     }
 
     IEnumerator Flicker()
     {
-        while (true)
+        flashlight.intensity = lightIntensity;
+
+        if(isFlickering)
         {
-            flashlight.intensity = lightIntensity;
-
-            float lightingTime = lightTime + ((float)rg.NextDouble() - 0.5f);
-            yield return new WaitForSeconds(lightingTime);
-
-            int flickerCount = rg.Next(4, 9);
+            int flickerCount = rg.Next(3, 6);
 
             for (var i = 0; i < flickerCount; i++)
             {
@@ -47,5 +43,18 @@ public class LightFlicker : MonoBehaviour
         }
     }
 
+    public void BatteryRunningLow()
+    {
+        isFlickering = true;
+        lightIntensity /= 2f;
+        flickerTime /= 2f;
+    }
 
+    public void OnGameOver()
+    {
+        isFlickering = false;
+        lightIntensity = 0f;
+        flickerIntensity = 0f;
+        flickerTime = 0f;
+    }
 }
