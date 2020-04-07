@@ -8,7 +8,7 @@ public class MazeGenerator : MonoBehaviour
 
     public int mazeWidth;
     public int mazeHeight;
-    public string mazeSeed;
+    // public string mazeSeed;
 
     public Sprite floorSprite;
     public Sprite roofSprite;
@@ -32,7 +32,7 @@ public class MazeGenerator : MonoBehaviour
 
     void Start()
     {
-        mazeRG = new System.Random(mazeSeed.GetHashCode());
+        mazeRG = new System.Random();
 
         if ((mazeWidth % 2) == 0)
             mazeWidth++;
@@ -182,7 +182,7 @@ public class MazeGenerator : MonoBehaviour
 
         
 
-        mazeSeed += 1;
+       // mazeSeed += 1;
 
 
         foreach (Transform child in transform)

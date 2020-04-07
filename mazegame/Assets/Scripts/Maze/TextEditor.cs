@@ -53,6 +53,9 @@ public class TextEditor : MonoBehaviour
         keysFound = true;
     }
 
+    public void OnGameOver()
+    {
+        consoletext.text = "Game Over!";
+    }
 
-    
 }

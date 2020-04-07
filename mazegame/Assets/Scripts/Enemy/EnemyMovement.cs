@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float walkSpeed;
+    public float runSpeed;
+    float currentSpeed;
     public float rotationSpeed;
-
     public Transform rotationTransform;
-
+    int visionRadius = 3;
     int targetX = -1;
     int targetY = -1;
 
@@ -17,9 +18,14 @@ public class EnemyMovement : MonoBehaviour
 
     float currentAngle;
     float lastAngle;
+    bool persuing;
 
     void Update()
     {
+        if (persuing)
+            currentSpeed = Mathf.Min(runSpeed, currentSpeed + 0.05f);
+        else
+            currentSpeed = Mathf.Max(walkSpeed, currentSpeed - 0.05f);
         currentX = Mathf.FloorToInt(transform.position.x);
         currentY = Mathf.FloorToInt(transform.position.y);
 
@@ -35,11 +41,11 @@ public class EnemyMovement : MonoBehaviour
         MoveEnemy();
     }
 
-    Vector2 PickNewTarget()
+    List<Vector2> GetAvailableMoves()
     {
         int[,] region = new int[,] { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
-        Vector2[] availableMoves = new Vector2[4];
-        for(int j = 0; j < region.GetLength(0); j++)
+        List<Vector2> availableMoves = new List<Vector2>();
+        for (int j = 0; j < region.GetLength(0); j++)
         {
             int x = currentX + region[j, 0];
             int y = currentY + region[j, 1];
@@ -47,51 +53,78 @@ public class EnemyMovement : MonoBehaviour
             if (MazeGenerator.instance.GetMazeGridCell(x, y))
             {
                 move.x = x;
-                move.y = y;   
+                move.y = y;
+                availableMoves.Add(move);
             }
-            availableMoves[j] = move;                
         }
-        Vector2 target = new Vector2(-1,-1);
-        System.Random rnd = new System.Random();
-        while (target.x < 1 || target.y < 1)
+        if (availableMoves.Count == 0)
+            availableMoves.Add(new Vector2(0, 0));
+        return availableMoves;
+    }
+
+    Vector2 GetClosestObject(Vector2 currentTarget)
+    {
+        var playerPosition = GameObject.FindGameObjectsWithTag("Player")[0].transform.position;
+        bool playerInRegion = (Mathf.Abs(playerPosition.x - currentTarget.x) <= visionRadius) && (Mathf.Abs(playerPosition.y - currentTarget.y) <= visionRadius);
+        if (playerInRegion)
         {
-            var randomIndex = rnd.Next(4);
-            target = availableMoves[randomIndex];
+            persuing = true;
+            return playerPosition;
         }
+        else
+        {
+            persuing = false;
+            return currentTarget;
+        }
+    }
+
+    Vector2 PickNewTarget()
+    {
+        var availableMoves = GetAvailableMoves();
+        Vector2 target = new Vector2(-1, -1);
+        System.Random rnd = new System.Random();
+        var randomIndex = rnd.Next(availableMoves.Count);
+        target = availableMoves[randomIndex];
+
+        target = GetClosestObject(target);
         return target;
     }
 
     void MoveEnemy()
     {
-       
+        bool targetReached = (currentX == targetX) && (currentY == targetY);
         Vector2 direction = Vector2.zero;
         direction.x = targetX - currentX;
         direction.y = targetY - currentY;
-        float newAngle = 0;
+        float newAngle = lastAngle;
 
         if (direction.x > 0)
         {
             newAngle = 270;
+            if (!MazeGenerator.instance.GetMazeGridCell(currentX + 1, currentY))
+                targetX = currentX;
         }
-        else if (direction.x < 0)
+        if (direction.x < 0)
         {
             newAngle = 90;
+            if (!MazeGenerator.instance.GetMazeGridCell(currentX - 1, currentY))
+                targetX = currentX;
         }
-        else if (direction.y > 0)
+        if (direction.y > 0)
         {
             newAngle = 0;
+            if (!MazeGenerator.instance.GetMazeGridCell(currentX, currentY + 1))
+                targetY = currentY;
         }
-        else if (direction.y < 0)
+        if (direction.y < 0)
         {
             newAngle = 180;
-        }
-        else
-        {
-            newAngle = lastAngle;
+            if (!MazeGenerator.instance.GetMazeGridCell(currentX, currentY - 1))
+                targetY = currentY;
         }
 
         currentAngle = Mathf.LerpAngle(currentAngle, newAngle, rotationSpeed * Time.deltaTime);
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetX, targetY), walkSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetX, targetY), currentSpeed * Time.deltaTime);
         rotationTransform.eulerAngles = new Vector3(0, 0, currentAngle);
         lastAngle = newAngle;
     }
