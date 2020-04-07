@@ -18,12 +18,6 @@ public class TimeController : MonoBehaviour
         checkPointTime = startTime / 2f;
     }
 
-    public void OnLoadNextLevel()
-    {
-        currentTime = startTime;
-        checkPointTime = startTime / 2f;
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -34,10 +28,10 @@ public class TimeController : MonoBehaviour
             if (currentTime <= 0)
             {
                 gameOverReached = true;
-                GameObject.Find("console_text").SendMessage("OnGameOver");
                 var flashLights = GameObject.FindGameObjectsWithTag("FlashLight");
                 foreach (var light in flashLights)
                     light.SendMessage("OnGameOver");
+                GameObject.Find("console_text").SendMessage("OnGameOver");
             }
             else if ((currentTime <= checkPointTime))
             {
@@ -49,5 +43,12 @@ public class TimeController : MonoBehaviour
             }
             
         }
+    }
+
+    public void OnReset()
+    {
+        gameOverReached = false;
+        currentTime = startTime;
+        checkPointTime = startTime / 2f;
     }
 }

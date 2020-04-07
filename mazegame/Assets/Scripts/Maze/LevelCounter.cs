@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LevelCounter : MonoBehaviour
 {
-    int levelCounter = 0;
+    int levelCounter = 1;
     public Text levelText;
 
     public void OnNextLevel()
@@ -14,15 +14,15 @@ public class LevelCounter : MonoBehaviour
         levelText.text = levelCounter.ToString();
     }
 
-    public void ResetLevel()
+    public void OnReset()
     {
-        levelCounter = 0;
+        levelCounter = 1;
         levelText.text = levelCounter.ToString();
     }
 
     public void Start()
     {
-        OnNextLevel();
+        levelText.text = levelCounter.ToString();
     }
 
 }

@@ -31,7 +31,7 @@ public class MazeGoal : MonoBehaviour
             transform.parent.SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
             GameObject.Find("console_text").SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
             GameObject.Find("Maze").SendMessage("LoadNextLevel", SendMessageOptions.DontRequireReceiver);
-            GameObject.Find("TimeManager").SendMessage("OnLoadNextLevel", SendMessageOptions.DontRequireReceiver);        
+            GameObject.Find("TimeManager").SendMessage("OnReset", SendMessageOptions.DontRequireReceiver);        
             GameObject.Find("ScoreValue").SendMessage("OnNextLevel");
 
             var flashLights = GameObject.FindGameObjectsWithTag("FlashLight");
@@ -44,11 +44,6 @@ public class MazeGoal : MonoBehaviour
     void OnReset()
     {
         closeGoal();
-        GameObject.Find("ScoreValue").SendMessage("ResetLevel");
-        var flashLights = GameObject.FindGameObjectsWithTag("FlashLight");
-        foreach (var light in flashLights)
-            light.SendMessage("ResetFlashlight");
-
+        transform.parent.SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
     }
-
 }
