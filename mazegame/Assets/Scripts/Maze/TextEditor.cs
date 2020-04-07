@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class TextEditor : MonoBehaviour
 {
-    string goal_reached_without_keys = "This door is really strong! Looks like you need more keys to open it..";
-    string goal_reached_with_keys = "This door is open. You go through..";
+   
+    string nextLevel = "*** ESCAPE THE MAZE ***";
 
     bool keysFound = false;
 
@@ -14,12 +14,20 @@ public class TextEditor : MonoBehaviour
     
     Stack keys = new Stack();
 
-    void Start()
-    {
-        var first_key_found = "You found a key! I wonder where it fits...";
-        var second_key_found = "You found a second key!";
-        var third_key_found = "You found a third key! ... *click*... Sounds like a door has opened";
+    string first_key_found = "You found a key! I wonder where it fits...";
+    string second_key_found = "You found a second key!";
+    string third_key_found = "You found a third key! ... *click*... Sounds like a door has opened";
 
+    void Start()
+    { 
+
+        keys.Push(third_key_found);
+        keys.Push(second_key_found);
+        keys.Push(first_key_found);
+    }
+
+    void restart()
+    {
         keys.Push(third_key_found);
         keys.Push(second_key_found);
         keys.Push(first_key_found);
@@ -37,10 +45,7 @@ public class TextEditor : MonoBehaviour
 
     public void OnGoalReached()
     {
-        if (keysFound)
-            consoletext.text = goal_reached_with_keys;
-        else
-            consoletext.text = goal_reached_without_keys;
+        consoletext.text = nextLevel;
     }
 
     void KeysFound()

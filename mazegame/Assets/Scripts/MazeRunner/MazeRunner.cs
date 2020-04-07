@@ -13,6 +13,9 @@ public class MazeRunner : MonoBehaviour
     int targetX = 1;
     int targetY = 1;
 
+    int currentX = 1;
+    int currentY = 1;
+
     float currentAngle;
     float lastAngle;
 
@@ -91,6 +94,27 @@ public class MazeRunner : MonoBehaviour
         lastAngle = newAngle;
     }
 
+    public void resetPlayer()
+    {
+        this.currentX = 1;
+        this.currentY = 1;
+        targetX = 1;
+        targetY = 1;
 
+        this.transform.position = new Vector3(1, 1, 0);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(1, 1), walkSpeed * Time.deltaTime);
+        Debug.Log("resetPlayer");
+    }
+
+    void reachedDoor()
+    {
+        float doorX = GameObject.Find("MazeGoal").transform.position.x;
+        float doorY = GameObject.Find("MazeGoal").transform.position.y;
+
+        if (this.currentX == doorX && this.currentY == doorY)
+        {
+            Debug.Log("atDoor");
+        }
+    }
 
 }

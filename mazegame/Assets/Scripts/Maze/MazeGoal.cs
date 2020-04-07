@@ -18,10 +18,19 @@ public class MazeGoal : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().sprite = openedGoalSprite;
     }
 
+    public void closeGoal()
+    {
+        GetComponentInChildren<SpriteRenderer>().sprite = closedGoalSprite;
+    }
+
     void OnTriggerEnter2D()
     {
-        transform.parent.SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
-        GameObject.Find("console_text").SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
+        if (MazeDirectives.instance.keysToFind == MazeDirectives.instance.foundKeys)
+        {
+            transform.parent.SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
+            GameObject.Find("console_text").SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
+            GameObject.Find("Maze").SendMessage("LoadNextLevel", SendMessageOptions.DontRequireReceiver);
+        }
     }
 
 }
