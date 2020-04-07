@@ -68,6 +68,8 @@
      <Compile Include="Assets\Scripts\Maze\TimeController.cs" />
      <Compile Include="Assets\Scripts\MazeRunner\MazeRunner.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuText.cs" />
+     <Compile Include="Assets\Scripts\Powerups\FastIce.cs" />
+     <Compile Include="Assets\Scripts\Powerups\SlowMud.cs" />
      <Compile Include="Assets\Scripts\Tools\Tools.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

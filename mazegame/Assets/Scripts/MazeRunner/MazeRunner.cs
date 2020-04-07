@@ -18,11 +18,12 @@ public class MazeRunner : MonoBehaviour
 
     float currentAngle;
     float lastAngle;
+    float speedMultiplier = 1f;
 
     void Update()
     {
         var targetReached = (((transform.position.x) == (targetX)) && ((transform.position.y) == (targetY)));
-        
+
         var currentX = Mathf.FloorToInt(transform.position.x);
         var currentY = Mathf.FloorToInt(transform.position.y);
 
@@ -88,8 +89,8 @@ public class MazeRunner : MonoBehaviour
         else if (left && up)
             newAngle = 45;
 
-        currentAngle = Mathf.LerpAngle(currentAngle, newAngle, rotationSpeed * Time.deltaTime);
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetX, targetY), walkSpeed * Time.deltaTime);
+        currentAngle = Mathf.LerpAngle(currentAngle, newAngle, speedMultiplier * rotationSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetX, targetY), speedMultiplier * walkSpeed * Time.deltaTime);
         rotationTransform.eulerAngles = new Vector3(0, 0, currentAngle);
         lastAngle = newAngle;
     }
@@ -122,6 +123,21 @@ public class MazeRunner : MonoBehaviour
         {
             GameObject.Find("console_text").SendMessage("OnGameOver");
         }
+    }
+
+    void OnStuckInMud()
+    {
+        speedMultiplier = 0.25f;
+    }
+
+    void OnSlippyIce()
+    {
+        speedMultiplier = 4.0f;
+    }
+
+    void OnNormalTile()
+    {
+        speedMultiplier = 1.0f;
     }
 
 }

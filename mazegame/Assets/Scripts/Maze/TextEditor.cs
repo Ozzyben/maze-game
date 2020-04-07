@@ -50,6 +50,7 @@ public class TextEditor : MonoBehaviour
     {
         consoletext.text = "Game Over!";
         GameObject.Find("Maze").SendMessage("LoadNextLevel", SendMessageOptions.DontRequireReceiver);
+        GameObject.Find("MazeRunner").SendMessage("OnNormalTile", SendMessageOptions.DontRequireReceiver);
         GameObject.Find("TimeManager").SendMessage("OnReset", SendMessageOptions.DontRequireReceiver);
         GameObject.Find("ScoreValue").SendMessage("OnReset");
         var flashLights = GameObject.FindGameObjectsWithTag("FlashLight");

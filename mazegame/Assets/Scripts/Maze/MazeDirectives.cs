@@ -11,6 +11,16 @@ public class MazeDirectives : MonoBehaviour
     public MazeGoal mazeGoalPrefab;
     public MazeKey mazeKeyPrefab;
 
+    public int numSlowSpots;
+    public int numFastSpots;
+    public SlowMud slowMudPrefab;
+    public FastIce fastIcePrefab;
+
+    List<Vector3> mazeKeyPositions;
+
+    //List<Vector3> slowMudPositions;
+    //List<Vector3> fastIcePositions;
+
     MazeGoal mazeGoal;
 
     public int foundKeys;
@@ -40,6 +50,22 @@ public class MazeDirectives : MonoBehaviour
         {
             MazeKey mazeKey = Instantiate(mazeKeyPrefab, mazeKeyPositions[i], Quaternion.identity) as MazeKey;
             mazeKey.transform.SetParent(transform);
+        }
+
+        var slowMudPositions = MazeGenerator.instance.GetRandomFloorPositions(numSlowSpots);
+
+        for (int i = 0; i < slowMudPositions.Count; i++)
+        {
+            SlowMud slowMud = Instantiate(slowMudPrefab, slowMudPositions[i], Quaternion.identity) as SlowMud;
+            slowMud.transform.SetParent(transform);
+        }
+
+        var fastIcePositions = MazeGenerator.instance.GetRandomFloorPositions(numFastSpots);
+
+        for (int i = 0; i < fastIcePositions.Count; i++)
+        {
+            FastIce fastIce = Instantiate(fastIcePrefab, fastIcePositions[i], Quaternion.identity) as FastIce;
+            fastIce.transform.SetParent(transform);
         }
     }
 

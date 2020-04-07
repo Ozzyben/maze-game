@@ -1456,7 +1456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c7046075f20e044aa6525255c91aefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 4
+  walkSpeed: 5
   rotationSpeed: 8
   rotationTransform: {fileID: 1582152336}
 --- !u!4 &1267925321
@@ -1729,7 +1729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 2
-  runSpeed: 3
+  runSpeed: 4.5
   rotationSpeed: 6
   rotationTransform: {fileID: 521072029}
 --- !u!58 &1425770603
@@ -2372,8 +2372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d110dc801a8174447a7bb24126f7f80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mazeWidth: 13
-  mazeHeight: 13
+  mazeWidth: 18
+  mazeHeight: 18
   floorSprite: {fileID: -8308593206366508291, guid: ceeccc48078801f43a8bbc15d8710dcc,
     type: 3}
   roofSprite: {fileID: 88957257453151522, guid: ceeccc48078801f43a8bbc15d8710dcc,
@@ -2416,6 +2416,12 @@ MonoBehaviour:
   mazeGoalPrefab: {fileID: 5828580251753564651, guid: c47136d1a90503d4c9a164f1472132d5,
     type: 3}
   mazeKeyPrefab: {fileID: 6277685457927978058, guid: e8191fbf49edd6a46b8f0af4219ff7d6,
+    type: 3}
+  numSlowSpots: 10
+  numFastSpots: 10
+  slowMudPrefab: {fileID: -928256324875696731, guid: 3a0f005b8e4b2bd4e8f1f12b6e180239,
+    type: 3}
+  fastIcePrefab: {fileID: 8089328992204050768, guid: 4311ce45e455b1747adc4de7e7217df7,
     type: 3}
   foundKeys: 0
 --- !u!1 &2036244925
