@@ -75,13 +75,9 @@ public class MazeDirectives : MonoBehaviour
 
     public void OnGoalReached()
     {
-        Debug.Log("Goal Reached");
         if (foundKeys == keysToFind)
         {
-            foundKeys = 0;
-            SetKeyValueText();
             GameObject.Find("console_text").SendMessage("keysFound", SendMessageOptions.DontRequireReceiver);
-            Debug.Log("Escape the maze");
         }
         
     }
@@ -106,9 +102,9 @@ public class MazeDirectives : MonoBehaviour
     void reset()
     {
         foundKeys = 0;
+        SetKeyValueText();
         keysToFind = 3;
         GetComponentInChildren<MazeGoal>().closeGoal();
-        Debug.Log("reset keys");
 
     }
 }
