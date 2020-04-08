@@ -181,7 +181,6 @@ public class MazeGenerator : MonoBehaviour
             Destroy(child.gameObject);
         }
      
-        GameObject.Find("MazeRunner").SendMessage("resetPlayer", SendMessageOptions.DontRequireReceiver);
         GameObject.Find("Maze").SendMessage("reset", SendMessageOptions.DontRequireReceiver);
         GameObject.Find("console_text").SendMessage("restart", SendMessageOptions.DontRequireReceiver);
         

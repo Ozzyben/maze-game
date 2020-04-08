@@ -18,9 +18,6 @@ public class MazeDirectives : MonoBehaviour
 
     List<Vector3> mazeKeyPositions;
 
-    //List<Vector3> slowMudPositions;
-    //List<Vector3> fastIcePositions;
-
     MazeGoal mazeGoal;
 
     public int foundKeys;
@@ -81,6 +78,8 @@ public class MazeDirectives : MonoBehaviour
         Debug.Log("Goal Reached");
         if (foundKeys == keysToFind)
         {
+            foundKeys = 0;
+            SetKeyValueText();
             GameObject.Find("console_text").SendMessage("keysFound", SendMessageOptions.DontRequireReceiver);
             Debug.Log("Escape the maze");
         }

@@ -41,6 +41,17 @@ public class EnemyMovement : MonoBehaviour
         MoveEnemy();
     }
 
+    public void resetPostion()
+    {
+        currentX = 1;
+        currentY = 1;
+        targetX = -1;
+        targetY = -1;
+
+        this.transform.position = new Vector3(10, 10, 0);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(1, 1), walkSpeed * Time.deltaTime);
+    }
+
     List<Vector2> GetAvailableMoves()
     {
         int[,] region = new int[,] { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
