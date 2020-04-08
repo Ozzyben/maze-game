@@ -127,7 +127,7 @@ public class MazeRunner : MonoBehaviour
 
     void OnStuckInMud()
     {
-        speedMultiplier = 0.25f;
+        speedMultiplier = 0.01f;
     }
 
     void OnSlippyIce()

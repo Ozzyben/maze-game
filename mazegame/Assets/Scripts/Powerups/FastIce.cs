@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class FastIce : MonoBehaviour
 {
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        StartCoroutine(WaitBlock());
+        if (collider.gameObject.name == "MazeRunner")
+        {
+            StartCoroutine(WaitBlock());
+        }
     }
 
     IEnumerator WaitBlock()
     {
         GameObject.Find("MazeRunner").SendMessage("OnSlippyIce", SendMessageOptions.DontRequireReceiver);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         GameObject.Find("MazeRunner").SendMessage("OnNormalTile", SendMessageOptions.DontRequireReceiver);
     }
 }
