@@ -1,0 +1,292 @@
+fileFormatVersion: 2
+guid: d436f9306d1867c44b4d0c5c013fcb7e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6353259541176127035
+    second: Sand Mud Ice (16x6)_0
+  - first:
+      213: 6167641977362757515
+    second: Sand Mud Ice (16x6)_1
+  - first:
+      213: 3626576778737192768
+    second: Sand Mud Ice (16x6)_2
+  - first:
+      213: -1886096266530949241
+    second: Sand Mud Ice (16x6)_3
+  - first:
+      213: -5355285561447925931
+    second: Sand Mud Ice (16x6)_4
+  - first:
+      213: 4326055876113354620
+    second: Sand Mud Ice (16x6)_5
+  - first:
+      213: 6231837862191567109
+    second: Sand Mud Ice (16x6)_6
+  - first:
+      213: 3089715790878325539
+    second: Sand Mud Ice (16x6)_7
+  - first:
+      213: 2592927809764433442
+    second: Sand Mud Ice (16x6)_8
+  - first:
+      213: -7049460874815310564
+    second: Sand Mud Ice (16x6)_9
+  - first:
+      213: -756588449674228840
+    second: Sand Mud Ice (16x6)_10
+  - first:
+      213: -5139483833580122578
+    second: Sand Mud Ice (16x6)_11
+  - first:
+      213: -2762073995133416762
+    second: Sand Mud Ice (16x6)_12
+  - first:
+      213: -8137486253352134369
+    second: Sand Mud Ice (16x6)_13
+  - first:
+      213: 7959445667963325942
+    second: Sand Mud Ice (16x6)_14
+  - first:
+      213: -4092149821824468057
+    second: Sand Mud Ice (16x6)_15
+  - first:
+      213: -2949986492328228125
+    second: Sand Mud Ice (16x6)_16
+  - first:
+      213: 6294569018857245732
+    second: Sand Mud Ice (16x6)_17
+  - first:
+      213: -8813512993246199862
+    second: Sand Mud Ice (16x6)_18
+  - first:
+      213: 4263242007108318073
+    second: Sand Mud Ice (16x6)_19
+  - first:
+      213: 2689398577134263771
+    second: Sand Mud Ice (16x6)_20
+  - first:
+      213: 2113908248476102448
+    second: Sand Mud Ice (16x6)_21
+  - first:
+      213: 6832011233148574984
+    second: Sand Mud Ice (16x6)_22
+  - first:
+      213: -5139339171710620609
+    second: Sand Mud Ice (16x6)_23
+  - first:
+      213: -5152155600372618435
+    second: Sand Mud Ice (16x6)_24
+  - first:
+      213: 8053830544482634923
+    second: Sand Mud Ice (16x6)_25
+  - first:
+      213: -8884820511876549848
+    second: Sand Mud Ice (16x6)_26
+  - first:
+      213: -6652587922537504266
+    second: Sand Mud Ice (16x6)_27
+  - first:
+      213: 7980830890365145323
+    second: Sand Mud Ice (16x6)_28
+  - first:
+      213: -8170579307771657102
+    second: Sand Mud Ice (16x6)_29
+  - first:
+      213: 7668828061770806365
+    second: Sand Mud Ice (16x6)_30
+  - first:
+      213: 894897704796957623
+    second: Sand Mud Ice (16x6)_31
+  - first:
+      213: -7851025316485012550
+    second: Sand Mud Ice (16x6)_32
+  - first:
+      213: -6536004677518967806
+    second: Sand Mud Ice (16x6)_33
+  - first:
+      213: 6215390559552578964
+    second: Sand Mud Ice (16x6)_34
+  - first:
+      213: -4810813019428552345
+    second: Sand Mud Ice (16x6)_35
+  - first:
+      213: -3036474563160157822
+    second: Sand Mud Ice (16x6)_36
+  - first:
+      213: 6374937487718563156
+    second: Sand Mud Ice (16x6)_37
+  - first:
+      213: -951019687346930432
+    second: Sand Mud Ice (16x6)_38
+  - first:
+      213: 641032367483661327
+    second: Mud
+  - first:
+      213: -3683629633130556525
+    second: Slime
+  - first:
+      213: -726947501034156854
+    second: Ice
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mud
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0c2469ba8765e800800000000000000
+      internalID: 641032367483661327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39396298d5e11ecc0800000000000000
+      internalID: -3683629633130556525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc408e691d59e5f0800000000000000
+      internalID: -726947501034156854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

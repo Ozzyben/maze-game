@@ -8,15 +8,11 @@ public class MazeGenerator : MonoBehaviour
 
     public int mazeWidth;
     public int mazeHeight;
-    public string mazeSeed;
 
     public Sprite floorSprite;
     public Sprite roofSprite;
     public Sprite wallSprite;
     public Sprite wallCornerSprite;
-
-    int startX = 1;
-    int startY = 1;
 
     public MazeSprite mazeSpritePrefab;
 
@@ -32,7 +28,7 @@ public class MazeGenerator : MonoBehaviour
 
     void Start()
     {
-        mazeRG = new System.Random(mazeSeed.GetHashCode());
+        mazeRG = new System.Random();
 
         if ((mazeWidth % 2) == 0)
             mazeWidth++;
@@ -180,45 +176,27 @@ public class MazeGenerator : MonoBehaviour
     void LoadNextLevel()
     {
 
-        
-
-        mazeSeed += 1;
-
-
         foreach (Transform child in transform)
         {
-
             Destroy(child.gameObject);
-
         }
-        
-
+     
         GameObject.Find("MazeRunner").SendMessage("resetPlayer", SendMessageOptions.DontRequireReceiver);
         GameObject.Find("Maze").SendMessage("reset", SendMessageOptions.DontRequireReceiver);
         GameObject.Find("console_text").SendMessage("restart", SendMessageOptions.DontRequireReceiver);
-
-
         
         Start();
-
-        
 
     }
 
     void clearGrid()
     {
         for (var x = 0; x < mazeWidth; x++)
-        {
             for (var y = 0; y < mazeHeight; y++)
             {
-
                 Vector3 position = new Vector3(x, y);
                 CreateMazeSprite(position, floorSprite, transform, 0, mazeRG.Next(0, 3) * 90);
-                
-
-
             }
-        }
     }
 
 }

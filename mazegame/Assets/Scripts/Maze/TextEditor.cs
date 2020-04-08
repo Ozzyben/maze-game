@@ -8,8 +8,6 @@ public class TextEditor : MonoBehaviour
    
     string nextLevel = "*** ESCAPE THE MAZE ***";
 
-    bool keysFound = false;
-
     public Text consoletext;
     
     Stack keys = new Stack();
@@ -48,11 +46,22 @@ public class TextEditor : MonoBehaviour
         consoletext.text = nextLevel;
     }
 
-    void KeysFound()
+    public void OnGameOver()
     {
-        keysFound = true;
+        consoletext.text = "Game Over!";
+        GameObject.Find("Maze").SendMessage("LoadNextLevel", SendMessageOptions.DontRequireReceiver);
+        GameObject.Find("MazeRunner").SendMessage("OnNormalTile", SendMessageOptions.DontRequireReceiver);
+        GameObject.Find("TimeManager").SendMessage("OnReset", SendMessageOptions.DontRequireReceiver);
+        GameObject.Find("ScoreValue").SendMessage("OnReset");
+        var flashLights = GameObject.FindGameObjectsWithTag("FlashLight");
+        foreach (var light in flashLights)
+            light.SendMessage("ResetFlashlight");
+        consoletext.text = nextLevel;
     }
 
+    public void OnBatteryLow()
+    {
+        consoletext.text = "I need to hurry. The batteries are running out...";
+    }
 
-    
 }

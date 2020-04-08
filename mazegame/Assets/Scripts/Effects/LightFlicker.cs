@@ -4,15 +4,21 @@ using UnityEngine;
 public class LightFlicker : MonoBehaviour
 {
 
-    public float lightIntensity;
-    public float flickerIntensity;
+    public float startLightIntensity;
+    public float startFlickerIntensity;
+    float flickerIntensity;
+    float lightIntensity;
 
-    public float lightTime;
-    public float flickerTime;
-
+    float flickerTime = 1f;
+    bool isFlickering = false;
     System.Random rg;
 
     Light flashlight;
+
+    void Start()
+    {
+        ResetFlashlight();
+    }
 
     void Awake()
     {
@@ -20,32 +26,44 @@ public class LightFlicker : MonoBehaviour
         flashlight = GetComponent<Light>();
     }
 
-    void Start()
+    void Update()
     {
         StartCoroutine(Flicker());
     }
 
     IEnumerator Flicker()
     {
-        while (true)
+        flashlight.intensity = lightIntensity;
+
+        if (isFlickering)
         {
-            flashlight.intensity = lightIntensity;
-
-            float lightingTime = lightTime + ((float)rg.NextDouble() - 0.5f);
-            yield return new WaitForSeconds(lightingTime);
-
-            int flickerCount = rg.Next(4, 9);
-
-            for (var i = 0; i < flickerCount; i++)
-            {
-                float flickingIntensity = lightIntensity - ((float)rg.NextDouble() * flickerIntensity);
-                flashlight.intensity = flickingIntensity;
-
-                float flickingTime = (float)rg.NextDouble() * flickerTime;
-                yield return new WaitForSeconds(flickingTime);
-            }
+            float flickingIntensity = lightIntensity - ((float)rg.NextDouble() * flickerIntensity);
+            flashlight.intensity = flickingIntensity;
+            float flickingTime = (float)rg.NextDouble() * flickerTime;
+            yield return new WaitForSeconds(flickingTime);
         }
     }
 
+    public void BatteryRunningLow()
+    {
+        isFlickering = true;
+        lightIntensity /= 2f;
+        flickerTime *= 3f;
+    }
+
+    public void OnGameOver()
+    {
+        isFlickering = false;
+        lightIntensity = 0f;
+        flickerIntensity = 0f;
+    }
+
+    public void ResetFlashlight()
+    {
+        isFlickering = false;
+        lightIntensity = startLightIntensity;
+        flickerIntensity = startFlickerIntensity;
+        flickerTime = 1f;
+    }
 
 }

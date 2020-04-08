@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MazeGoal : MonoBehaviour
 {
-
+    
     public Sprite closedGoalSprite;
     public Sprite openedGoalSprite;
+ 
 
     void Start()
     {
@@ -30,7 +31,19 @@ public class MazeGoal : MonoBehaviour
             transform.parent.SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
             GameObject.Find("console_text").SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
             GameObject.Find("Maze").SendMessage("LoadNextLevel", SendMessageOptions.DontRequireReceiver);
+            GameObject.Find("TimeManager").SendMessage("OnReset", SendMessageOptions.DontRequireReceiver);        
+            GameObject.Find("ScoreValue").SendMessage("OnNextLevel");
+
+            var flashLights = GameObject.FindGameObjectsWithTag("FlashLight");
+            foreach (var light in flashLights)
+                light.SendMessage("ResetFlashlight");
+
         }
     }
 
+    void OnReset()
+    {
+        closeGoal();
+        transform.parent.SendMessage("OnGoalReached", SendMessageOptions.DontRequireReceiver);
+    }
 }
