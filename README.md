@@ -1,3 +1,3 @@
 # maze-game
-Maze game for computer games programming part 2
+Maze game for Computer Games Programming course at Heriot-Watt University. Made with Unity.
 ![Clip from trailer](demo-clip.gif)
